@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-alterai-pl
+  namespace: istio-system
+#  annotations:
+#    cert-manager.io/issue-temporary-certificate: "true"
+spec:
+  commonName: argocd.alterai.pl
+  secretName: argocd-alterai-pl-tls
+  dnsNames:
+    - argocd.alterai.pl
+  issuerRef:
+    name: acme-prod
+    kind: ClusterIssuer

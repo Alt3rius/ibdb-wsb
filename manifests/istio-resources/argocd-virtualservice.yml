@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: argocd-vs
+  namespace: argocd
+spec:
+  hosts:
+  - "argocd.alterai.pl"
+  gateways:
+  - argocd/argocd-gateway
+  - mesh
+  http:
+  - route:
+    - destination:
+        port:
+          number: 80
+        host: argocd-server.argocd.svc.cluster.local

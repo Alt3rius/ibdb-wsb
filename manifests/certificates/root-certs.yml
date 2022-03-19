@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: alterai-pl
+  namespace: istio-system
+#  annotations:
+#    cert-manager.io/issue-temporary-certificate: "true"
+spec:
+  commonName: alterai.pl
+  secretName: alterai-pl-tls
+  dnsNames:
+    - alterai.pl
+  issuerRef:
+    name: acme-prod
+    kind: ClusterIssuer

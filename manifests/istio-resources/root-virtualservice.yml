@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: root-vs
+  namespace: webapp
+spec:
+  hosts:
+  - "alterai.pl"
+  gateways:
+  - webapp/webapp-gateway
+  - mesh
+  http:
+  - route:
+    - destination:
+        port:
+          number: 5000
+        host: webapp.webapp.svc.cluster.local

@@ -1,0 +1,36 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio
+spec:
+  profile: default
+  tag: 1.11.3 # istio/operator
+  hub: docker.io/istio
+  meshConfig:
+    accessLogFile: /dev/stdout
+    enablePrometheusMerge: true
+  values:
+    sidecarInjectorWebhook:
+      neverInjectSelector:
+      - matchExpressions:
+        - {key: app, operator: In, values: [kube-prometheus-stack-admission-create,kube-prometheus-stack-admission-patch]}
+  # components:
+  #   ingressGateways:
+  #   - name: istio-ingressgateway
+  #     enabled: true
+  #     k8s:
+  #       overlays:
+  #       - apiVersion: apps/v1
+  #         kind: Deployment
+  #         name: istio-ingressgateway
+  #         patches:
+  #         - path: kind
+  #           value: DaemonSet
+  #         - path: spec.strategy
+  #           value:
+  #         - path: spec.updateStrategy
+  #           value:
+  #             rollingUpdate:
+  #               maxUnavailable: 1
+

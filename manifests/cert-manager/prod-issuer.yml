@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: acme-prod
+spec:
+  acme:
+    email: mikolajkula1994@gmail.com # replace with your email
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: acme-prod
+    solvers:
+    - http01:
+        ingress:
+          class: istio
