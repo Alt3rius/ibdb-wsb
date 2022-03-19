@@ -4,6 +4,5 @@ kind: Kustomization
 resources:
 - argocd-gateway.yml
 - argocd-virtualservice.yml
-- postgres-virtualservice.yml
-- todoapp-virtualservice.yml
-- todoapp-gateway.yml
+- root-gateway.yml
+- root-virtualservice.yml
