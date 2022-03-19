@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Alt3rius/ibdb-wsb.git
     targetRevision: HEAD
-    path: istio
+    path: manifests/istio
     kustomize:
       version: v4.0.5
   destination:
