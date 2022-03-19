@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- argocd-applications/argocd.yml
-- argocd-applications/istio-operator.yml
-- argocd-applications/istio.yml
-- argocd-applications/cert-manager.yml
-- argocd-applications/istio-resources.yml
-- argocd-applications/certificates.yml
+- manifests/argocd-applications/argocd.yml
+- manifests/argocd-applications/istio-operator.yml
+- manifests/argocd-applications/istio.yml
+- manifests/argocd-applications/cert-manager.yml
+- manifests/argocd-applications/istio-resources.yml
+- manifests/argocd-applications/certificates.yml
