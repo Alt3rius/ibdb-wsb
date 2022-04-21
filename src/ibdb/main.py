@@ -9,11 +9,11 @@ import requests
 
 app = Flask(__name__)
 
-os.environ['DB_USER'] = 'doadmin'
-os.environ['DB_PASSWORD'] = 'AVNS_YhiAGmscq7y49Eq'
-os.environ['DB_URL'] = 'ibdb-database-do-user-7370813-0.b.db.ondigitalocean.com'
-os.environ['DB_PORT'] = '25060'
-os.environ['DB_DATABASE'] = 'defaultdb'
+# os.environ['DB_USER'] = 'doadmin'
+# os.environ['DB_PASSWORD'] = 'AVNS_YhiAGmscq7y49Eq'
+# os.environ['DB_URL'] = 'ibdb-database-do-user-7370813-0.b.db.ondigitalocean.com'
+# os.environ['DB_PORT'] = '25060'
+# os.environ['DB_DATABASE'] = 'defaultdb'
 # conn = psycopg2.connect(host='ibdb-database-do-user-7370813-0.b.db.ondigitalocean.com', database='defaultdb', user='doadmin', password='AVNS_9DKW3RrX-BqZuBr', port=25060, sslmode='require')
 
 # engine = create_engine(f"postgresql+psycopg2://{os.environ['DB_USER']}:{os.environ['DB_PASSWORD']}@{os.environ['DB_URL']}:{os.environ['DB_PORT']}/{os.environ['DB_DATABASE']}")
