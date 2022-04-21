@@ -8,3 +8,5 @@ resources:
 # - service.yml
 - migration-job.yml
 - serverless-service.yml
+- domain-claim.yml
+- domain-mapping.yml
