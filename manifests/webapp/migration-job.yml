@@ -13,6 +13,11 @@ spec:
         - bash
         - -c
         - "flask db init && flask db migrate && flask db upgrade"
+        envFrom:
+        - configMapRef:
+            name: db-cm
       restartPolicy: Never
+
+
   backoffLimit: 4
 
