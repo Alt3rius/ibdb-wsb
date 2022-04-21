@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div>
+        <div class="jumbotron">
+            <h1 class="display-4">Internet Books Database</h1>
+            <hr class="my-4">
+        </div>
+
+        <nav class="navbar navbar-light bg-light">
+            <a class="nav-item nav-link active" href="{{ url_for('index') }}">Home</a>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal">
+    Add review
+  </button>
+  
+  <!-- Modal -->
+            <div>
+                <form class="form-inline" id="searchform">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="searchtitle">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchsubmit">Search</button>
+            </div>
+            </form>
+        </nav>
+    </div>
+
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="reviewModalLabel">Add review</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form class="form-inline" id="addreviewform">
+            <div class="modal-body">
+              <input class="form-control mr-sm-2" type="text" placeholder="Title" id="title">
+              <input class="form-control mr-sm-2" type="text" placeholder="Rating" id="rating">
+              <input class="form-control mr-sm-2" type="text" placeholder="Review" style="height: 150px" id="review">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="submit" type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+    {% block content %} {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+    </script>
+
+    <script>
+        var form_review_add = document.getElementById("addreviewform")
+        form_review_add.addEventListener("submit", function(e){
+            console.log("It's working")
+            e.preventDefault()
+            var url = "{{ url_for('add_review') }}"
+            var title = document.getElementById("title").value
+            var rating = document.getElementById("rating").value
+            var review = document.getElementById("review").value
+
+            fetch(url, {
+                method: "POST",
+				headers:{
+					'Content-type':'application/json'
+				},
+				body:JSON.stringify({'book_name':title, 'rating': rating, 'review': review})
+            })
+        })
+
+        var search_form = document.getElementById("searchform")
+        search_form.addEventListener("submit", function(e){
+            e.preventDefault()
+            var url = "{{ url_for('search') }}"
+            var query = document.getElementById("searchtitle").value
+
+            fetch(url, {
+                method: "POST",
+				headers:{
+					'Content-type':'application/json'
+				},
+                body:JSON.stringify({'query': query})
+            }).then(response => response.json()).then(data => {
+                var root_url = "http://127.0.0.1:5000"
+                console.log(root_url)
+                console.log(data)
+                window.location.href = `${root_url}/show-reviews/${data['book_id']}`
+            })
+        })
+
+        
+    </script>
+</body>
+</html>

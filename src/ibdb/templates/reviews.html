@@ -1,0 +1,21 @@
+{% extends "header.html" %}
+{% block content %}
+
+{% for review in reviews %}
+
+    <div class="card mb-3">
+        <div class="row g-0">
+        <div class="col-md-8">
+            <div class="card-body">
+            <h5 class="card-title">{{ review.book_name }}</h5>
+            <h6 class="card-title">Rating: {{ review.rating }}</h5>
+            <p class="card-text">{{ review.review }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+  
+
+{% endfor %}
+
+{% endblock %}
