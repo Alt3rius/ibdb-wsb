@@ -17,7 +17,6 @@ spec:
             name: db-cm
         ports:
         - containerPort: 5000
-          name: http
         resources:
           requests:
             memory: "1Gi"
