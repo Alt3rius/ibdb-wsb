@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migration-job
+  namespace: webapp
+spec:
+  template:
+    spec:
+      containers:
+      - name: migration
+        image: alterius/ibdb
+        command:
+        - bash
+        - -c
+        - "flask db init && flask db migrate && flask db upgrade"
+      restartPolicy: Never
+  backoffLimit: 4
+

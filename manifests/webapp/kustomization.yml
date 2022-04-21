@@ -6,3 +6,4 @@ resources:
 - deployment.yml
 - db-config.yml
 - service.yml
+- migration-job.yml
