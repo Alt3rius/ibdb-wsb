@@ -23,7 +23,7 @@ spec:
         - --log-level
         - debug
         - --timeout
-        - 180
+        - "180"
         envFrom:
         - configMapRef:
             name: db-cm
