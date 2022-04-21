@@ -47,3 +47,10 @@ kubectl get svc istio-ingressgateway -n istio-system
 ```
 terraform apply -target module.dns
 ```
+
+7. Apply database migration
+```
+kubectl apply -f https://raw.githubusercontent.com/Alt3rius/ibdb-wsb/main/manifests/webapp/migration-job.yml
+```
+
+8. Enjoy!
