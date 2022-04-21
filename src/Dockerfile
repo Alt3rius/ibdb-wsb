@@ -5,5 +5,3 @@ RUN pip install flask flask-migrate flask-sqlalchemy requests psycopg2-binary gu
 COPY ./ibdb /var/www/ibdb
 
 WORKDIR /var/www/ibdb
-
-ENTRYPOINT gunicorn --bind 0.0.0.0 wsgi:app

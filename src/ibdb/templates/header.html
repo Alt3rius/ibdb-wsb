@@ -90,7 +90,7 @@
 				},
                 body:JSON.stringify({'query': query})
             }).then(response => response.json()).then(data => {
-                var root_url = "http://127.0.0.1:5000"
+                var root_url = "https://alterai.pl"
                 console.log(root_url)
                 console.log(data)
                 window.location.href = `${root_url}/show-reviews/${data['book_id']}`

@@ -36,7 +36,7 @@ class Book(db.Model):
 
 @app.route('/')
 def index():
-    response = requests.get('http://127.0.0.1:5000/most-popular')
+    response = requests.get('https://alterai.pl/most-popular')
     print(response.json())
     return render_template('index.html', most_reviewed=response.json()[:5])
 
