@@ -8,3 +8,4 @@ resources:
 - manifests/argocd-applications/cert-manager.yml
 - manifests/argocd-applications/istio-resources.yml
 - manifests/argocd-applications/certificates.yml
+- manifests/argocd-applications/webapp.yml

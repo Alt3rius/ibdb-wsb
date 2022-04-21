@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-cm
+  namespace: webapp
+data:
+  DB_USER: "doadmin"
+  DB_PASSWORD: "AVNS_YhiAGmscq7y49Eq"
+  DB_URL: "ibdb-database-do-user-7370813-0.b.db.ondigitalocean.com"
+  DB_PORT: "25060"
+  DB_DATABASE: "defaultdb"

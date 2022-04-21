@@ -6,4 +6,4 @@ COPY ./ibdb /var/www/ibdb
 
 WORKDIR /var/www/ibdb
 
-ENTRYPOINT gunicorn --host 0.0.0.0 wsgi:app
+ENTRYPOINT gunicorn --bind 0.0.0.0 wsgi:app
