@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
 - argocd-gateway.yml
 - argocd-virtualservice.yml
-- root-gateway.yml
-- root-virtualservice.yml
+# - root-gateway.yml
+# - root-virtualservice.yml

@@ -3,7 +3,8 @@ kind: Kustomization
 
 resources:
 - namespace.yml
-- deployment.yml
+# - deployment.yml
 - db-config.yml
-- service.yml
+# - service.yml
 - migration-job.yml
+- serverless-service.yml

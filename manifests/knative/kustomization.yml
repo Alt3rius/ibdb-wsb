@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- core.yml
+- istio-net.yml
+- istio-policy.yml
+- cert-manager.yml
+
+patchesStrategicMerge:
+- config-domain.yml
+- cert-manager-patch.yml
+- auto-tls.yml
+- namespace-inject.yml

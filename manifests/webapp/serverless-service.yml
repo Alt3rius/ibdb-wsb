@@ -1,0 +1,25 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: webapp
+  namespace: webapp
+spec:
+  template:
+    spec:
+      containers:
+      - image: alterius/ibdb
+        imagePullPolicy: Always
+        command:
+        - python
+        - main.py
+        envFrom:
+        - configMapRef:
+            name: db-cm
+        ports:
+        - containerPort: 5000
+          name: http
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "1200m"
+
