@@ -6,7 +6,7 @@ resources:
 # - deployment.yml
 - db-config.yml
 # - service.yml
-- migration-job.yml
+# - migration-job.yml
 - serverless-service.yml
 - domain-claim.yml
 - domain-mapping.yml
